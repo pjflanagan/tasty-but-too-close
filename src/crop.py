@@ -23,7 +23,7 @@ log_file.close()
 
 def crop_video(f):
     # select a random x and y to view from
-    side = randint(160, 320)
+    side = randint(160, 260)
     random_x = randint(0, 640 - side)
     random_y = randint(0, 640 - side)
 
@@ -45,7 +45,7 @@ def crop_video(f):
     cropped_clip.write_videofile(
         out_file_path,
         audio_codec='aac',
-        codec='mpeg4'
+        codec='libx264'  # 'mpeg4'
     )
 
 

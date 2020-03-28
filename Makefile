@@ -13,3 +13,6 @@ clean:
 
 crop:
 	python3 src/crop.py
+
+# post:
+# 	python3 src/post.py

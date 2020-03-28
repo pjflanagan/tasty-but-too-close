@@ -39,6 +39,8 @@ for f in all_out_files:
     # if this file is not in the array
     if (f + "\n") not in posted:
 
+        print(split)
+
         # read the original caption
         caption_file = open(join(in_path, split[0] + ".txt"), "r")
         caption = ""
