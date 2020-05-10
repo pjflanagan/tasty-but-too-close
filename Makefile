@@ -1,12 +1,15 @@
 
 
-default: reset
+default:
+	reset
+	crop
 
 reset:
 	reset
 
-# download: # https://github.com/instaloader/instaloader
-# 	instaloader --fast-update profile buzzfeedtasty
+# https://github.com/instaloader/instaloader
+download: 
+	instaloader --no-profile-pic --no-pictures --dirname-pattern ./src/data/in/{profile} buzzfeedtasty
 
 clean:
 	python3 src/clean.py

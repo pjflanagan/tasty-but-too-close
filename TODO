@@ -1,0 +1,5 @@
+- [ ] only process videos that are a minute long or less, if they are too long, add them to skipped
+- [x] renmae posted to cropped, not all that are cropped are posted
+- [ ] make a skip command (skip the video that was made last)
+- [x] make a redo command (redo the video that was made last)
+- [ ] clean command should remove videos from downloads that we've already posted

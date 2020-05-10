@@ -8,7 +8,8 @@ def isCroppable(split, f):
     return (
         len(split) > 1 and
         split[1] == "mp4" and
-        (f + "\n") not in cropped
+        (f + "\n") not in cropped and
+        VideoFileClip(join(IN_PATH, f)).duration <= 60
     )
 
 
