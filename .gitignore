@@ -3,3 +3,4 @@ src/config.py
 __pycache__
 .vscode
 .DS_Store
+*.mp4
