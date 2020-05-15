@@ -2,10 +2,7 @@
 
 default:
 	reset
-	crop
-
-reset:
-	reset
+	make crop
 
 # https://github.com/instaloader/instaloader
 download: 

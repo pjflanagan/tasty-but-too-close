@@ -5,6 +5,8 @@ from random import randint
 import os
 from os import listdir
 from os.path import isfile, join
+from hashtags import get_hashtags
+
 
 IN_PATH = "src/data/in/" + "buzzfeedtasty"
 OUT_PATH = "src/data/out/" + "buzzfeedtasty"
@@ -50,12 +52,13 @@ def crop_video(f):
 
 
 def get_caption(name):
-    # read the original caption
+    # read the first line of the original caption and add the hashtags
     caption_file = open(join(IN_PATH, name + ".txt"), "r")
     caption = ""
     for line in caption_file:
-        caption += line + "\n"
-    return caption
+        caption += line
+        break
+    return caption + get_hashtags()
 
 
 def log(f):

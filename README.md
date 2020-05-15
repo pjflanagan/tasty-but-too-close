@@ -3,7 +3,7 @@
 
 # Tasty But Too Close
 
-This is an Instagram project focused on bringing users even closer to the Tasty videos they love.
+This is an [Instagram account](https://www.instagram.com/tasty_but_too_close/) focused on bringing users even closer to the Tasty videos they love.
 
 ## How To
 
