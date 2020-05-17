@@ -1,5 +1,5 @@
 
-from main import *
+from tools import *
 
 if __name__ == "__main__":
     f = cropped[len(cropped) - 1].strip()

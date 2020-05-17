@@ -5,22 +5,24 @@ from random import randint
 import os
 from os import listdir
 from os.path import isfile, join
-from hashtags import get_hashtags
+from .caption import get_hashtags
+from .config import IN_PATH, OUT_PATH
+from .log import cropped
 
-
-IN_PATH = "src/data/in/" + "buzzfeedtasty"
-OUT_PATH = "src/data/out/" + "buzzfeedtasty"
-LOG_PATH = "src/log/" + "buzzfeedtasty"
 
 # read all the in files
 all_in_files = [f for f in listdir(IN_PATH) if isfile(join(IN_PATH, f))]
 
-# open the cropped log and read it into an array
-log_file = open(join(LOG_PATH, "cropped.txt"), "r")
-cropped = []
-for line in log_file:
-    cropped.append(line)
-log_file.close()
+
+def isCroppable(split, f):
+    # TODO: if the file is in skipped return false
+    # TODO: if the file is over a minute long add it to skipped and return false
+    return (
+        len(split) > 1 and
+        split[1] == "mp4" and
+        (f + "\n") not in cropped and
+        VideoFileClip(join(IN_PATH, f)).duration <= 60
+    )
 
 
 def crop_video(f):
@@ -49,20 +51,3 @@ def crop_video(f):
         audio_codec='aac',
         codec='libx264'  # 'mpeg4'
     )
-
-
-def get_caption(name):
-    # read the first line of the original caption and add the hashtags
-    caption_file = open(join(IN_PATH, name + ".txt"), "r")
-    caption = ""
-    for line in caption_file:
-        caption += line
-        break
-    return caption + get_hashtags()
-
-
-def log(f):
-    # log
-    log_file = open(join(LOG_PATH, "cropped.txt"), "a")
-    log_file.write(f + "\n")
-    log_file.close()
