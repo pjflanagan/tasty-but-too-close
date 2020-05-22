@@ -1,6 +1,7 @@
 from random import sample
 import subprocess
 from .config import IN_PATH
+from os.path import join
 
 
 HASHTAGS = [
